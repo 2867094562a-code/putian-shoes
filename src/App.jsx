@@ -324,11 +324,11 @@ export default function App() {
               {/* 👇👇👇 修改这里：在这里添加、删除或修改合作伙伴的信息 👇👇👇 */}
               {/* 将 name 里的文字换成你的品牌名字，img 里的路径换成你的图片 */}
               {[
-                { id: 1, name: "得物 App", img: "/partner-1.png" },
-                { id: 2, name: "识货 App", img: "/partner-2.png" },
-                { id: 3, name: "顺丰速运", img: "/partner-3.png" },
-                { id: 4, name: "品牌 D", img: "/partner-4.png" },
-                { id: 5, name: "品牌 E", img: "/partner-5.png" }
+                { id: 1, name: "树标", img: "/partner-1.png" },
+                { id: 2, name: "鲸动", img: "/partner-2.png" },
+                { id: 3, name: "辉腾", img: "/partner-3.png" },
+                { id: 4, name: "福恩娃", img: "/partner-4.png" },
+                { id: 5, name: "石一童", img: "/partner-5.png" }
               ].map((partner) => (
                 <div 
                   key={partner.id} 
