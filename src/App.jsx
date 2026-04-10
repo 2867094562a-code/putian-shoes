@@ -315,6 +315,10 @@ export default function App() {
             <p className="text-gray-500 dark:text-gray-400">
               携手行业顶尖品牌，共创优质新零售体验
             </p>
+            {/* 新增的说明文字 */}
+            <p className="text-xs text-gray-400 dark:text-gray-500 mt-2">
+              (此排名不分先后)
+            </p>
           </FadeInSection>
           
           <FadeInSection delay={200}>
@@ -328,18 +332,19 @@ export default function App() {
                 { id: 2, name: "鲸动", img: "/partner-2.png" },
                 { id: 3, name: "辉腾", img: "/partner-3.png" },
                 { id: 4, name: "福恩娃", img: "/partner-4.png" },
-                { id: 5, name: "石一童", img: "/partner-5.png" }
+                { id: 5, name: "石一童", img: "/partner-5.png" },
+                { id: 6, name: "石一童", img: "/partner-5.png" }
               ].map((partner) => (
                 <div 
                   key={partner.id} 
                   className="flex flex-col items-center group cursor-pointer w-24 md:w-32 lg:w-36 transition-all hover:-translate-y-1"
                 >
                   {/* Logo 图片框 */}
-                  <div className="w-24 h-24 md:w-32 md:h-32 lg:w-36 lg:h-36 bg-white dark:bg-white/5 rounded-2xl shadow-sm border border-gray-100 dark:border-white/10 flex items-center justify-center p-4 group-hover:shadow-lg transition-all mb-3 md:mb-4">
+                  <div className="w-24 h-24 md:w-32 md:h-32 lg:w-36 lg:h-36 bg-white dark:bg-white/5 rounded-2xl shadow-sm border border-gray-100 dark:border-white/10 flex items-center justify-center p-4 group-hover:shadow-lg transition-all mb-3 md:mb-4 overflow-hidden">
                     <img 
                       src={partner.img} 
                       alt={`合作伙伴 ${partner.name}`} 
-                      className="w-full h-full object-contain rounded-xl grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300"
+                      className="w-full h-full object-contain rounded-xl transition-transform duration-300 group-hover:scale-110"
                       onError={(e) => {
                         e.target.style.display = 'none';
                         e.target.nextSibling.style.display = 'block';
