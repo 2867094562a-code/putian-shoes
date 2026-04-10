@@ -1,17 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { ChevronRight, ArrowDown, Store, ShieldCheck, Cpu, Sun, Moon, MapPin, Home, Sparkles, Users, MessageSquare, ArrowUp } from 'lucide-react';
+import { ChevronRight, ArrowDown, Store, ShieldCheck, Cpu, Sun, Moon, MapPin, Home, Sparkles, Users, MessageSquare, ArrowUp, Handshake } from 'lucide-react';
 
-/**
- * 【本地项目部署说明】：
- * 1. 将你的 Logo 图片命名为 logo.png
- * 2. 将其放入本地项目的 src/assets/ 文件夹下
- * 3. 取消下面这一行 import 的注释即可完美显示：
- */
-import logoImg from './assets/logo.png';
-
-// 为了让当前预览环境不报错并提供占位效果，我们暂时定义这个变量
-// 在本地开发时，如果你使用 public 文件夹，请保持此路径为 "/logo.png"
-//const logoImg = "logo.png"; 
+// 在本地开发和线上部署时，将图片放在 public 文件夹即可完美显示
+const logoImg = "/logo.png";
 
 // 安全地配置 Tailwind 的暗黑模式策略为 'class'
 if (typeof window !== 'undefined') {
@@ -314,6 +305,62 @@ export default function App() {
           </FadeInSection>
         </section>
 
+        {/* --- 合作伙伴板块 (新增) --- */}
+        <section className="py-20 px-5 max-w-7xl mx-auto border-t border-gray-100 dark:border-white/10">
+          <FadeInSection className="text-center mb-12">
+            <h3 className="text-2xl md:text-4xl font-bold mb-4 tracking-tight flex items-center justify-center gap-3">
+              <Handshake className="w-8 h-8 text-[#0b3261] dark:text-[#cda869]" />
+              合作伙伴
+            </h3>
+            <p className="text-gray-500 dark:text-gray-400">
+              携手行业顶尖品牌，共创优质新零售体验
+            </p>
+          </FadeInSection>
+          
+          <FadeInSection delay={200}>
+            {/* 使用 flex-wrap，无论后期增加多少个 Logo，都会自动换行并居中排布 */}
+            <div className="flex flex-wrap justify-center items-start gap-6 md:gap-10">
+              
+              {/* 👇👇👇 修改这里：在这里添加、删除或修改合作伙伴的信息 👇👇👇 */}
+              {/* 将 name 里的文字换成你的品牌名字，img 里的路径换成你的图片 */}
+              {[
+                { id: 1, name: "得物 App", img: "/partner-1.png" },
+                { id: 2, name: "识货 App", img: "/partner-2.png" },
+                { id: 3, name: "顺丰速运", img: "/partner-3.png" },
+                { id: 4, name: "品牌 D", img: "/partner-4.png" },
+                { id: 5, name: "品牌 E", img: "/partner-5.png" }
+              ].map((partner) => (
+                <div 
+                  key={partner.id} 
+                  className="flex flex-col items-center group cursor-pointer w-24 md:w-32 lg:w-36 transition-all hover:-translate-y-1"
+                >
+                  {/* Logo 图片框 */}
+                  <div className="w-24 h-24 md:w-32 md:h-32 lg:w-36 lg:h-36 bg-white dark:bg-white/5 rounded-2xl shadow-sm border border-gray-100 dark:border-white/10 flex items-center justify-center p-4 group-hover:shadow-lg transition-all mb-3 md:mb-4">
+                    <img 
+                      src={partner.img} 
+                      alt={`合作伙伴 ${partner.name}`} 
+                      className="w-full h-full object-contain rounded-xl grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300"
+                      onError={(e) => {
+                        e.target.style.display = 'none';
+                        e.target.nextSibling.style.display = 'block';
+                      }} 
+                    />
+                    {/* 当图片没找到或加载失败时，显示占位文字 */}
+                    <span className="hidden text-sm text-gray-400 font-medium text-center">品牌<br/>Logo</span>
+                  </div>
+                  
+                  {/* 👇👇👇 这里负责显示品牌名称 👇👇👇 */}
+                  <span className="text-sm md:text-base text-gray-600 dark:text-gray-400 font-medium group-hover:text-[#0b3261] dark:group-hover:text-[#cda869] transition-colors duration-300 text-center">
+                    {partner.name}
+                  </span>
+                </div>
+              ))}
+              {/* 👆👆👆 修改结束 👆👆👆 */}
+
+            </div>
+          </FadeInSection>
+        </section>
+
         {/* --- 页脚 --- */}
         <footer id="contact" className="border-t border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-black py-10 md:py-12 text-center text-xs md:text-sm text-gray-500 transition-colors">
           <div className="max-w-7xl mx-auto px-6 flex flex-col items-center">
@@ -330,7 +377,7 @@ export default function App() {
                 <span className="hidden font-bold dark:text-white">莆鞋汇 PUTIAN SHOES HUB</span>
              </div>
              <p className="mb-2">业务合作 / 校园代理 / 售后咨询</p>
-             <p className="font-medium text-gray-700 dark:text-gray-300 mb-6">微信搜索关注：湄职院莆鞋汇</p>
+             <p className="font-medium text-gray-700 dark:text-gray-300 mb-6 text-base md:text-lg">微信搜索关注：MZY莆鞋汇</p>
              <p>© 2026 湄光追影科技有限公司. All rights reserved.</p>
           </div>
         </footer>
