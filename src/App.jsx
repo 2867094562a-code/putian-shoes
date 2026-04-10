@@ -332,8 +332,7 @@ export default function App() {
                 { id: 2, name: "鲸动", img: "/partner-2.png" },
                 { id: 3, name: "辉腾", img: "/partner-3.png" },
                 { id: 4, name: "福恩娃", img: "/partner-4.png" },
-                { id: 5, name: "石一童", img: "/partner-5.png" },
-                { id: 6, name: "石一童", img: "/partner-5.png" }
+                { id: 5, name: "石一童", img: "/partner-5.png" }
               ].map((partner) => (
                 <div 
                   key={partner.id} 
